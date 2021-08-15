@@ -11,6 +11,6 @@ import com.hafizcode.noteappdicoding.repository.NoteRepository
 class MainViewModel(application: Application) : ViewModel() {
     private val mNoteRepository: NoteRepository = NoteRepository(application)
 
-    fun getAllNotes(): LiveData<PagedList<Note>> =
-        LivePagedListBuilder(mNoteRepository.getAllNotes(), 10).build()
+    fun getAllNotes(sort: String): LiveData<PagedList<Note>> =
+        LivePagedListBuilder(mNoteRepository.getAllNotes(sort), 20).build()
 }

@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.hafizcode.noteappdicoding.R
 import com.hafizcode.noteappdicoding.database.Note
 import com.hafizcode.noteappdicoding.databinding.ActivityMainBinding
+import com.hafizcode.noteappdicoding.helper.SortUtils
 import com.hafizcode.noteappdicoding.helper.ViewModelFactory
 import com.hafizcode.noteappdicoding.ui.insert.NoteAddUpdateActivity
 
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         val mainViewModel = obtainViewModel(this@MainActivity)
-        mainViewModel.getAllNotes().observe(this, noteObserver)
+        mainViewModel.getAllNotes(SortUtils.NEWEST).observe(this, noteObserver)
 
         adapter = NotePagedListAdapter(this@MainActivity)
 
